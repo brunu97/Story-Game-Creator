@@ -1,0 +1,103 @@
+@echo off
+
+
+::================Start Scene=======================
+:start
+cls
+echo.
+echo                                       ARENA
+echo ################################################################################
+echo Play [1]                           Register [2]                   Exit [3]
+echo ################################################################################
+
+set com=4
+set /p com=
+if "%com%"=="1" goto play
+if "%com%"=="2" goto register
+if "%com%"=="3" exit
+goto start
+
+
+::=====================Create account scene=======================
+:register
+cls
+echo Create account
+echo.
+echo Username:
+set /p username=
+if exist %username%.bat (
+echo Exists! you need another name!
+cls
+goto top
+)
+cls
+echo Password:
+set /p pass=
+cls
+echo Success!
+ping localhost -n 2 >nul
+cls
+set hp=100
+set magic=100
+set pots=2
+set skill=10
+set lvl=1
+set gold=%gold%
+(
+echo set pass=%pass%
+echo set hp=%hp%
+echo set magic=%magic%
+echo set pots=%pots%
+echo set skill=%skill%
+echo set lvl=%lvl%
+echo set gold=%gold%
+)>%username%.bat
+goto start
+
+
+
+
+::===========================Login============================
+:play
+echo Your Username:
+set /p usernameA=
+cls
+echo ##########################
+echo              WAIT...
+echo ##########################
+ping localhost -n 2 >nul
+if exist %usernameA%.bat (
+CALL %usernameA%.bat
+goto password
+)
+color c
+echo access denied!!!!
+pause>nul
+color 0f
+cls
+goto start
+
+:password
+echo Password:
+set /p password1=
+if %password1% ==%pass% goto playgame
+cls
+goto start
+
+
+:: ===========================================Start Game=======================
+:playgame
+cls
+echo Your account.
+echo.
+color 08
+echo set pass=%pass%
+echo set hp=%hp%
+echo set magic=%magic%
+echo set pots=%pots%
+echo set skill=%skill%
+echo set lvl=%lvl%
+echo set gold=%gold%
+pause>nul
+
+
