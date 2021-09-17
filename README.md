@@ -4,7 +4,7 @@ Story Game Creator é um software dedicado para criação de jogos RPG e Aventur
 Este repositório inclui o códido do Editor.
 
 Site: https://storygamecreator.webs.com
-Story Game Creator foi criado em 2024 utilizando Just BASIC.
+Story Game Creator foi criado em 2014 utilizando Just BASIC.
 
 
 <p align="center">
